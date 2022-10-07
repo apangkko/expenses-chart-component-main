@@ -41,6 +41,7 @@ fetch('./data.json')
         data: data,
         options: {
             maintainAspectRatio: false,
+            responsive: true,
             plugins: {
                 legend: {
                     display: false
