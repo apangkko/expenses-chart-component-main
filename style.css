@@ -41,7 +41,7 @@ img {
     justify-content: space-between;
     background-color: var(--clr-primary-400);
     border-radius: 1em;
-    color: #fff;
+    color:var(--clr-neutral-200);
     margin-bottom: 1.5em;
     padding: 1.4em 2em;
 }
@@ -66,13 +66,81 @@ img {
 
 .spend__heading {
     color: var(--clr-neutral-500);
-    font-size: 1.8em;
+    font-size: 1.7em;
     margin-bottom: 1em;
 }
 
 .chart-container {
     position: relative;
-    height: 220px;
+    width: 100%;
+}
+
+.bar__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1em;
+    text-align: center;
+    width: 100%;
+    height: 14rem;
+}
+
+.bar__col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%; 
+}
+
+.bar__amount {
+    position: absolute;
+    color: var(--clr-neutral-200);
+    background-color: var(--clr-neutral-500);
+    border-radius: .3rem;
+    font-weight: 700;
+    padding: .45em;
+    margin-bottom: 2.2em;
+    transition: .3s ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+.bar__col:hover .bar__amount {
+    opacity: 1;
+}
+
+.bar__graphic {
+    position: relative;
+    background-color: var(--clr-primary-400);
+    border-radius: .3rem;
+    width: 100%;
+    transition: .3s ease;
+    animation: fadeup .5s ease-out;
+}
+
+@keyframes fadeup {
+    from {height: 0;}
+}
+
+.bar__col:hover .bar__graphic {
+    background-color: hsl(10, 100%, 76%);
+}
+
+.bar__graphic--max {
+    background-color: var(--clr-primary-500);
+}
+
+.bar__col:hover .bar__graphic--max {
+    background-color: hsl(188, 48%, 80%);
+}
+
+.bar__day {
+    color: var(--clr-neutral-400);
+    font-size: .85em;
+    margin-top: .5em;
+    position: relative;
 }
 
 hr {
@@ -109,8 +177,13 @@ hr {
     color: var(--clr-neutral-400);
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 30rem) {
     body {
         font-size: 0.9rem;
+    }
+
+    .bar__container {
+        gap: .8em;
+        height: 12.8rem;
     }
 }
